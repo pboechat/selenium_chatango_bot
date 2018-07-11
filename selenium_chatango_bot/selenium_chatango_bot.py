@@ -101,8 +101,8 @@ def main():
             bot_config = json.load(file)
 
         print("loading bot bot_msgs ('{}')...".format(args.bot_msgs))
-        with open(args.bot_msgs, 'rt', encoding='utf-8') as file:
-            bot_msgs = [line.encode('utf-8').strip() for line in file.readlines()]
+        with open(args.bot_msgs, 'r', encoding='utf-8') as file:
+            bot_msgs = [line.strip() for line in file.readlines()]
         random.shuffle(bot_msgs)
 
         msg_seq_size = min(len(bot_msgs), bot_config['MESSAGE_SEQUENCE_SIZE'])
