@@ -112,14 +112,9 @@ def main():
             msg = bot_msgs.pop()
             print("+ [{}/{}] sending message: '{}'".format(i, msg_seq_size, msg))
 
-            while True:
-                try:
-                    input_field.clear()
-                    input_field.send_keys(msg + keys.Keys.ENTER)
-                    sent_bot_msgs.append(remove_emoticons(msg).strip())
-                    break
-                except:
-                    continue
+            input_field.clear()
+            input_field.send_keys(msg + keys.Keys.ENTER)
+            sent_bot_msgs.append(remove_emoticons(msg).strip())
 
             if first_time:
                 print("since it's the first message send, let's wait for {} second(s)...".format(
